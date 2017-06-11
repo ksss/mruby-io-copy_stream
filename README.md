@@ -7,13 +7,13 @@ The implementation of `IO.copy_stream` method for mruby.
 
 - Support `pread(2)`
 - Support `sendfile(2)` if linux
+- It doesn't have dependency to IO library.
 
 # Special spec of this library
 
 - Use fd for system call if respond to `fileno` method.
 - Use `read` and `write` method if doesn't have fd.
 - Use `seek` method if doesn't have fd for src_offset option.
-- It doesn't have dependency to IO library.
 
 # Performance
 
