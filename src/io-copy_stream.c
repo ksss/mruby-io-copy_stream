@@ -213,8 +213,12 @@ copy_stream_read_write(mrb_state *mrb, struct copy_stream_struct *stp)
     }
     else {
       mrb_value buf_obj = mrb_funcall(mrb, stp->src, "read", 1, mrb_fixnum_value(len));
-      if (!mrb_string_p(buf_obj)) /* unexpected spec */
+      if (mrb_nil_p(buf_obj)) /* EOF */
         return;
+
+      if (!mrb_string_p(buf_obj)) /* unexpected spec */
+        mrb_raisef(mrb, E_RUNTIME_ERROR, "IO#read should return String or nil, got %S", buf_obj);
+
       ss = RSTRING_LEN(buf_obj);
       if (ss <= 0) /* EOF or error */
         return;
