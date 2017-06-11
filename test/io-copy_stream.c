@@ -174,6 +174,9 @@ test_io_read(mrb_state *mrb, mrb_value self)
 
   RSTR_SET_LEN(RSTRING(buffer), ss);
 
+  if (ss == 0)
+    return mrb_nil_value();
+
   return buffer;
 }
 
