@@ -1,0 +1,11 @@
+version: "2"
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../:/mruby-io-copy_stream
+    working_dir: /mruby
+    environment:
+      MRUBY_CONFIG: /mruby-io-copy_stream/docker/build_config.rb

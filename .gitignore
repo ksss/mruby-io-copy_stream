@@ -1,0 +1,8 @@
+*.o
+autom4te.cache/
+*.log
+config.status
+config.h
+configure.scan
+configure.lineno
+autoscan.log
