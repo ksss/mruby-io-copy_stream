@@ -500,7 +500,7 @@ void
 mrb_mruby_io_copy_stream_gem_init(mrb_state* mrb)
 {
   struct RClass *io = mrb_define_class(mrb, "IO", mrb->object_class);
-  mrb_define_class_method(mrb, io, "copy_stream", io_copy_stream, MRB_ARGS_NONE());
+  mrb_define_class_method(mrb, io, "copy_stream", io_copy_stream, MRB_ARGS_REQ(2));
 
   mrb_define_class(mrb, "IOError", mrb->eStandardError_class);
 }
