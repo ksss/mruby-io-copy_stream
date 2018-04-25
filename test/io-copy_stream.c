@@ -104,7 +104,7 @@ test_io_s_open(mrb_state *mrb, mrb_value mod)
       break;
   }
 
-  fd = open(RSTRING_PTR(path), o_mode);
+  fd = open(RSTRING_PTR(path), o_mode, 0666);
   if (fd == -1)
     mrb_sys_fail(mrb, 0);
 
