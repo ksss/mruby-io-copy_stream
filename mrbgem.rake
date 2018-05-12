@@ -3,6 +3,7 @@ MRuby::Gem::Specification.new('mruby-io-copy_stream') do |spec|
   spec.author  = 'ksss <co000ri@gmail.com>'
 
   spec.add_test_dependency("mruby-errno")
+  spec.add_test_dependency("mruby-error")
 
   env = {
     'CC' => "#{build.cc.command} #{build.cc.flags.join(' ')}",
